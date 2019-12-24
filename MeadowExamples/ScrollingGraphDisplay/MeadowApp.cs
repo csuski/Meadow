@@ -10,7 +10,7 @@ namespace ScrollingGraphDisplay
 {
     public class MeadowApp : App<F7Micro, MeadowApp>
     {
-        private ST7789 _display;
+        private St7789 _display;
         private ISpiBus _spiBus;
         private GraphicsLibrary _graphicsLib;
         private IDigitalOutputPort _blueLED;
@@ -29,7 +29,7 @@ namespace ScrollingGraphDisplay
 
             var config = new SpiClockConfiguration(6000, SpiClockConfiguration.Mode.Mode3);
             _spiBus = Device.CreateSpiBus(Device.Pins.SCK, Device.Pins.MOSI, Device.Pins.MISO, config);
-            _display = new ST7789(device: Device, spiBus: _spiBus,
+            _display = new St7789(device: Device, spiBus: _spiBus,
                chipSelectPin: Device.Pins.D02,
                dcPin: Device.Pins.D01,
                resetPin: Device.Pins.D00,
@@ -38,7 +38,7 @@ namespace ScrollingGraphDisplay
             _graphicsLib = new GraphicsLibrary(_display);
             _graphicsLib.CurrentFont = new Font8x8();
             _graphicsLib.Clear();
-            _graphicsLib.CurrentRotation = GraphicsLibrary.Rotation._90Degrees;
+            _graphicsLib.Rotation = GraphicsLibrary.RotationType._90Degrees;
             _display.Clear(Meadow.Foundation.Color.Black, true);
         }
 

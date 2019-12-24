@@ -9,7 +9,7 @@ namespace ScrollingTextDisplay
 {
     public class MeadowApp : App<F7Micro, MeadowApp>
     {
-        private ST7789 display;
+        private St7789 display;
         private ISpiBus spiBus;
         private GraphicsLibrary graphicsLib;
         private IDigitalOutputPort _blueLED;
@@ -28,7 +28,7 @@ namespace ScrollingTextDisplay
 
             var config = new SpiClockConfiguration(6000, SpiClockConfiguration.Mode.Mode3);
             spiBus = Device.CreateSpiBus(Device.Pins.SCK, Device.Pins.MOSI, Device.Pins.MISO, config);
-            display = new ST7789(device: Device, spiBus: spiBus,
+            display = new St7789(device: Device, spiBus: spiBus,
                chipSelectPin: Device.Pins.D02,
                dcPin: Device.Pins.D01,
                resetPin: Device.Pins.D00,
@@ -38,7 +38,7 @@ namespace ScrollingTextDisplay
             graphicsLib.CurrentFont = new Font8x8();
 
             graphicsLib.Clear();
-            graphicsLib.CurrentRotation = GraphicsLibrary.Rotation._90Degrees;
+            graphicsLib.Rotation = GraphicsLibrary.RotationType._90Degrees;
             display.Clear(Meadow.Foundation.Color.Black, true);
 
                 
@@ -46,8 +46,8 @@ namespace ScrollingTextDisplay
 
         public void CreateLogger()
         {
-            if (graphicsLib.CurrentRotation == GraphicsLibrary.Rotation._90Degrees ||
-                graphicsLib.CurrentRotation == GraphicsLibrary.Rotation._270Degrees)
+            if (graphicsLib.Rotation == GraphicsLibrary.RotationType._90Degrees ||
+                graphicsLib.Rotation == GraphicsLibrary.RotationType._270Degrees)
             {
                 _logger = new ScrollingTextDisplay(graphicsLib, (int)display.Width, (int)display.Height);
             }

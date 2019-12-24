@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.29318.209
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ScrollingTextDisplay", "ScrollingTextDisplay\ScrollingTextDisplay.csproj", "{796A3FF7-311F-4D70-BF06-BB7149FDE657}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScrollingGraphDisplay", "ScrollingGraphDisplay\ScrollingGraphDisplay.csproj", "{AD08FE73-0B10-4D14-8983-36BC6CD81BA2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ScrollingGraphDisplay", "ScrollingGraphDisplay\ScrollingGraphDisplay.csproj", "{AD08FE73-0B10-4D14-8983-36BC6CD81BA2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

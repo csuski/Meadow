@@ -183,9 +183,9 @@ namespace ScrollingGraphDisplay
 
                 graphX = YAxis.Font == null ? _graphicsLibrary.CurrentFont.Height : YAxis.Font.Height;
                 graphWidth -= graphY;
-                _graphicsLibrary.CurrentRotation = PreviousRotation(_graphicsLibrary.CurrentRotation);
+                _graphicsLibrary.Rotation = PreviousRotation(_graphicsLibrary.Rotation);
                 DrawLabel(x, y, YAxis.Text, YAxis.Font, YAxis.Color);
-                _graphicsLibrary.CurrentRotation = NextRotation(_graphicsLibrary.CurrentRotation);
+                _graphicsLibrary.Rotation = NextRotation(_graphicsLibrary.Rotation);
             }
             DrawBorder(graphX + 1, graphY + 1, graphX + graphWidth - 1, graphY + graphHeight - 1);
             return new GraphPane { X = graphX + 2, Y = graphY + 2, Width = graphWidth - 4, Height = graphHeight - 4 };
@@ -200,15 +200,15 @@ namespace ScrollingGraphDisplay
         }
 
 
-        private static GraphicsLibrary.Rotation NextRotation(GraphicsLibrary.Rotation rotation)
+        private static GraphicsLibrary.RotationType NextRotation(GraphicsLibrary.RotationType rotation)
         {
             if ((int)rotation == 3) return 0;
             return rotation + 1;
         }
 
-        private static GraphicsLibrary.Rotation PreviousRotation(GraphicsLibrary.Rotation rotation)
+        private static GraphicsLibrary.RotationType PreviousRotation(GraphicsLibrary.RotationType rotation)
         {
-            if ((int)rotation == 0) return (GraphicsLibrary.Rotation)3;
+            if ((int)rotation == 0) return (GraphicsLibrary.RotationType)3;
             return rotation - 1;
         }
 
